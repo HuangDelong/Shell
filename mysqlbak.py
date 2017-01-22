@@ -62,11 +62,16 @@ else:
    db = DB_NAME
    dumpcmd = "mysqldump -u " + DB_USER + " -p" + DB_USER_PASSWORD + " " + "--triggers --routines --events" + " " + db + " > " + TODAYBACKUPPATH + "/" + db + '.sql'
    os.system(dumpcmd)
+
+# Tar database backup
 tarcmd = "cd " + BACKUP_PATH + " && " " tar czvf " + DATETIME + ".tar.gz " + DATETIME + "/" + " && " + "rm -rf " + DATETIME + "/"
 os.system(tarcmd)
+
+# Remove database backup before 7 date
 rmbak7 = "find /" + BACKUP_PATH + " -mtime +7 -name *.tar.gz |xargs rm -rf"
 os.system(rmbak7)
 
+# Database backup information to the log
 logcmd = "echo 'Backup script completed. Your backup has been create in' " + TODAYBACKUPPATH + ".tar.gz" + ">>/var/log/mysqlbak.log "
 os.system(logcmd)
 
