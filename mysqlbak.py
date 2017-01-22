@@ -23,7 +23,7 @@ import datetime
 
 DB_HOST = 'localhost'
 DB_USER = 'root'
-DB_USER_PASSWORD = 'Srtgsoft@db1'
+DB_USER_PASSWORD = 'password'
 DB_NAME = '/usr/local/apache/mysqlbak/dbnames.txt'
 #DB_NAME = 'dbname'
 BACKUP_PATH = '/usr/local/apache/mysqlbak/'
