@@ -66,5 +66,7 @@ tarcmd = "cd " + BACKUP_PATH + " && " " tar czvf " + DATETIME + ".tar.gz " + DAT
 os.system(tarcmd)
 rmbak7 = "find /" + BACKUP_PATH + " -mtime +7 -name *.tar.gz |xargs rm -rf"
 os.system(rmbak7)
-print "Backup script completed"
-print "Your backups has been created in " + BACKUP_PATH + DATETIME + "tar.gz "
+
+logcmd = "echo 'Backup script completed. Your backup has been create in' " + TODAYBACKUPPATH + ".tar.gz" + ">>/var/log/mysqlbak.log "
+os.system(logcmd)
+
