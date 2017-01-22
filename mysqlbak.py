@@ -4,13 +4,6 @@
 # This python script is used for mysql database backup
 # using mysqldump utility.
 #
-# Written by : Rahul Kumar
-# Website: http://tecadmin.net
-# Created date: Dec 03, 2013
-# Last modified: Dec 03, 2013
-# Tested with : Python 2.6.6
-# Script Revision: 1.1
-#
 ##########################################################
 
 # Import required python libraries
@@ -28,7 +21,7 @@ DB_NAME = '/usr/local/apache/mysqlbak/dbnames.txt'
 #DB_NAME = 'dbname'
 BACKUP_PATH = '/usr/local/apache/mysqlbak/'
 
-# Getting current datetime to create seprate backup folder like "12012013-071334".
+# Getting current datetime to create seprate backup folder like "2017-01-22".
 DATETIME = time.strftime('%Y-%m-%d')
 
 TODAYBACKUPPATH = BACKUP_PATH + DATETIME
