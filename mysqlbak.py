@@ -68,7 +68,7 @@ tarcmd = "cd " + BACKUP_PATH + " && " " tar czvf " + DATETIME + ".tar.gz " + DAT
 os.system(tarcmd)
 
 # Remove database backup before 7 date
-rmbak7 = "find /" + BACKUP_PATH + " -mtime +7 -name *.tar.gz |xargs rm -rf"
+rmbak7 = "find " + BACKUP_PATH + " -mtime +7 -name \*.tar.gz |xargs rm -rf"
 os.system(rmbak7)
 
 # Database backup information to the log
