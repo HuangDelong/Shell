@@ -5,6 +5,8 @@ usage() {
 }
 
 start_tomcat() {
+rm -rf /usr/local/tomcat/temp/*
+rm -rf /usr/local/tomcat/work/*
 /usr/local/tomcat/bin/startup.sh
 }
 
@@ -15,10 +17,12 @@ sleep 5;
 
 TPID=$(ps aux |grep java |grep tomcat |grep -v 'grep' | awk '{print $2}')
     if [ -z $TPID ];then
+        echo "##############################################"
 	echo "tomcat stop"
     else
 	kill -9 $TSTAT
         sleep 5;
+	echo "##############################################"
         echo "tomcat stop"
     fi
 }
