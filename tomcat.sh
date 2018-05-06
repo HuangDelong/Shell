@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage() {
-   echo  " Usage: $0 [start|stop|status]"
+   echo  " Usage: $0 [start|stop|restart|status]"
 }
 
 start_tomcat() {
@@ -10,7 +10,7 @@ rm -rf /usr/local/tomcat/work/*
 /usr/local/tomcat/bin/startup.sh > /dev/null 2>&1
         echo "##############################################"
         echo "tomcat started"
-
+	echo "##############################################"
 }
 
 stop_tomcat() {
@@ -22,11 +22,13 @@ TPID=$(ps aux |grep java |grep tomcat |grep -v 'grep' | awk '{print $2}')
     if [ -z $TPID ];then
         echo "##############################################"
 	echo "tomcat stoped"
+	echo "##############################################"
     else
 	kill -9 $TSTAT
         sleep 5;
 	echo "##############################################"
         echo "tomcat stoped"
+        echo "##############################################"
     fi
 }
 
@@ -42,6 +44,8 @@ case "$1" in
      stop_tomcat;;
   status)
      status_tomcat;;
+  restart)
+     stop_tomcat && start_tomcat;;
     *)
      usage;;
 esac
